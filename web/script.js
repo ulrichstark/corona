@@ -137,7 +137,7 @@ function updateCountryDialogPosition(boundingBox) {
     const left = boundingBox.left + boundingBox.width / 2;
     let top = boundingBox.top;
 
-    if (boundingBox.bottom < window.innerHeight / 2) {
+    if (boundingBox.top + boundingBox.height / 2 < window.innerHeight / 2) {
         elementCountryDialog.classList.remove("flipped");
 
         top += boundingBox.height + countryDialogPadding;
