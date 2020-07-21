@@ -1,0 +1,207 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #ccc;
+    overflow-x: hidden;
+    font-family: Verdana, Arial, sans-serif;
+    font-size: 16px;
+}
+
+h2 {
+    margin: 0;
+    margin-bottom: 16px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+#world {
+    width: 100vw;
+}
+
+svg {
+    fill: currentColor;
+}
+
+#world path {
+    transition: fill 0.4s;
+    fill: #999;
+    stroke-width: 2px;
+    stroke: #222;
+    cursor: help;
+}
+
+@keyframes focusedCountry {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0.6;
+    }
+}
+
+#world path:hover {
+    animation-name: focusedCountry;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#parameter-dialog,
+#country-dialog,
+#loading-banner {
+    position: fixed;
+    background-color: #eee;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+#loading-banner {
+    left: 16px;
+    top: 16px;
+    padding: 16px;
+    pointer-events: none;
+    transition-property: transform, opacity;
+    transition-duration: 0.4s;
+}
+
+#loading-banner.hidden {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+#parameter-dialog {
+    position: fixed;
+    left: 16px;
+    bottom: 16px;
+    padding: 24px;
+    text-align: center;
+}
+
+#parameter-dialog-compareDistance-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#parameter-dialog-compareDistance-text {
+    font-size: 1.3em;
+}
+
+#country-dialog {
+    display: none;
+    padding: 16px;
+    transform: translate(-50%, 0%);
+    flex-direction: column;
+    align-items: center;
+    border: solid white 6px;
+    max-width: 350px;
+    text-align: center;
+}
+
+#country-dialog-arrow {
+    position: absolute;
+    background-color: #eee;
+    width: 20px;
+    height: 20px;
+    top: -10px;
+    left: 50%;
+    transform: rotate(45deg);
+    pointer-events: none;
+}
+
+#country-dialog.flipped {
+    transform: translate(-50%, -100%);
+}
+
+#country-dialog.flipped #country-dialog-arrow {
+    top: unset;
+    bottom: -10px;
+}
+
+#country-dialog-compareData {
+    letter-spacing: 0.5px;
+}
+
+#country-dialog-change {
+    font-size: 1.2em;
+    margin-top: 8px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#country-dialog-chart {
+    margin: 0 auto;
+    margin-top: 24px;
+    margin-bottom: 4px;
+}
+
+#country-dialog-chartLegend {
+    color: #888;
+    font-size: 0.8em;
+}
+
+#country-dialog-chartLegend strong {
+    font-weight: normal;
+    color: #36e;
+}
+
+#country-dialog.visible {
+    display: flex;
+}
+
+button {
+    width: 40px;
+    height: 40px;
+    margin: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    transition-property: transform, background-color;
+    transition-duration: 0.4s;
+    background-color: #36e;
+    color: white;
+}
+
+button:hover {
+    background-color: #48d;
+    transform: scale(1.1);
+}
+
+button:active {
+    transform: scale(1.3);
+}
+
+#legende {
+    pointer-events: none;
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+}
+
+#legende-links,
+#legende-rechts {
+    position: absolute;
+    top: -1.5em;
+    color: #36e;
+    font-weight: bold;
+}
+
+#legende-links {
+    left: 0;
+}
+
+#legende-rechts {
+    right: 0;
+}
+
+#legende-farben {
+    display: flex;
+    letter-spacing: 0.5px;
+}
+
+#legende-farben div {
+    padding: 8px;
+    flex-grow: 1;
+    flex-shrink: 0;
+}
